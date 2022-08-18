@@ -1,0 +1,14 @@
+{
+    "platforms": [
+        {
+            "title": "Android",
+            "description": "",
+            "courses": []
+        },
+        {
+            "title": "Flutter",
+            "description": "",
+            "courses": []
+        }
+    ]
+}
