@@ -1,7 +1,7 @@
 {
   "name": "school",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/main.js",
   "scripts": {
     "start": "node ./dist/main.js",
     "dev": "nodemon",

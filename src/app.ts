@@ -11,7 +11,7 @@ import { PlatformsController } from './platforms/platforms.controller';
 export class App 
 {
     app: Express;
-    port: number;
+    port: number | string;
     server: Server;
 
     constructor(
@@ -20,7 +20,7 @@ export class App
     )
     {
         this.app = express();
-        this.port = 3000;
+        this.port = process.env.PORT || 3000;
     }
 
     useRoutes(): void {
