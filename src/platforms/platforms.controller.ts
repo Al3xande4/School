@@ -6,6 +6,8 @@ import { TYPES } from '../types';
 import 'reflect-metadata';
 import { IPlatformService } from './platform.service.interface';
 import { IPlatformController } from './platforms.controller.interface';
+import { ParamsDictionary } from 'express-serve-static-core';
+import { ParsedQs } from 'qs';
 
 
 @injectable()
@@ -22,12 +24,33 @@ export class PlatformsController extends BaseController implements IPlatformCont
 				func: this.platforms,
 				middlewares: [],
 			},
+			{
+				path: '/android',
+				method: 'get',
+				func: this.android,
+				middlewares: [],
+			},
+			{
+				path: '/flutter',
+				method: 'get',
+				func: this.flutter,
+				middlewares: [],
+			}
 		]);
 	}
 
 	async platforms(req: Request, res: Response, next: NextFunction): Promise<void>
 	{
-		this.ok(res, {platforms: await this.platformService.getPlatforms()});
+		this.ok(res, await this.platformService.getPlatforms());
 	}
 
+	async android(req: Request, res: Response, next: NextFunction): Promise<void>
+	{
+		this.ok(res, await this.platformService.getPlatformById('android'));
+	}
+
+	async flutter(req: Request, res: Response, next: NextFunction): Promise<void>
+	{
+		this.ok(res, await this.platformService.getPlatformById('flutter'));
+	}
 }

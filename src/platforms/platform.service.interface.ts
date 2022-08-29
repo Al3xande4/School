@@ -1,5 +1,6 @@
-import { Platform } from './platform.entity';
+import { Platform, PlatformDescription } from './platform.entity';
 
 export interface IPlatformService {
-	getPlatforms: () => Promise<Platform[]>;
+	getPlatforms: () => Promise<PlatformDescription[]>;
+	getPlatformById: (id: string) => Promise<Platform>;
 }
